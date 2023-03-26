@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 #%% Charger les données
-names = ["date","world population","population_growth_today"]
+names = ["date","world population","population_growth_year_to_date"]
 
 df = pd.read_csv('data.csv', delimiter=';', names = names)
 
