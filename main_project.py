@@ -11,11 +11,11 @@ names = ["date","world_population","population_growth_year_to_date"]
 df = pd.read_csv('data.csv', delimiter=';', names = names)
 
 df["date"] = pd.to_datetime(df["date"])
-df.iloc[:, 1:] = df.iloc[:, 1:].apply(lambda x: x.str.replace(',', '').astype(float)) # convert to float because not possible to convert to int
+df.iloc[:, 1:] = df.iloc[:, 1:].apply(lambda x: x.str.replace(',', '').astype(float))
+
 
 # Créer une application Dash
 app = Dash(__name__)
-
 
 
 #%% Figure
