@@ -71,8 +71,24 @@ app.layout = html.Div(children=[
         id='world-growth-population-graph',
 
         figure = fig2
-    )
-])
+    ),
+   dcc.Interval(
+            id="interval-component",
+            interval=120 * 1000,  # Mise à jour toutes les 2 minutes
+            n_intervals=0,
+        ),
+    html.H2(children="Rapport quotidien"), #TABLE RECAP
+        dash_table.DataTable(
+            id="daily-report-table",
+            columns=[
+                {"name": "Date", "id": "date"},
+                {"name": "Population actuelle", "id": "world_population"},
+            ],
+            style_cell={"textAlign": "center"},
+            style_header={"backgroundColor": "rgb(230, 230, 230)", "fontWeight": "bold"},
+        ),
+]
+)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
